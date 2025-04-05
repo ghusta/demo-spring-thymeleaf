@@ -10,6 +10,14 @@
 <div class="container">
     <h1 th:text="${message}">Message par défaut</h1>
 
+    <h3>Some Thymeleaf Expression objects</h3>
+    <ul>
+        <li><span th:text="${#locale}">?</span></li>
+        <li><span th:text="${#dates.format(#dates.createNow())}">?</span></li>
+        <li><span th:text="${#dates.format(#dates.createNow(), 'HH:mm:ss')}">?</span></li>
+        <li><span th:text="${#dates.formatISO(#dates.createNow())}">?</span></li>
+    </ul>
+
     <footer>Generated at <span th:text="${serverTime}" style="color: #b8185d; font-weight: Bold">⏰</span></footer>
 </div>
 </body>
