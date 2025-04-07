@@ -7,5 +7,10 @@
 <body>
     <h1>Hello <span th:text="${name}">🤠</span></h1>
 
+    <!--/* display list */-->
+    <ul>
+        <li th:each="item: ${myList}" th:text="${item}">🙄</li>
+    </ul>
+
 </body>
 </html>

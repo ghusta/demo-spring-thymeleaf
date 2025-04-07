@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -21,12 +22,17 @@ public class HomeController {
 
         model.addAttribute("message", "Bienvenue dans Spring " + SPRING_VERSION + " avec Thymeleaf !");
         model.addAttribute("serverTime", formatter.format(now));
+
         return "home"; // Affiche home.html
     }
 
     @GetMapping("/greeting")
     public String greeting(@RequestParam(name = "name", defaultValue = "🤡") String name, Model model) {
         model.addAttribute("name", name);
+
+        List<String> myList = List.of("Hello World", "Hello World", "Hello World", "Hello World");
+        model.addAttribute("myList", myList);
+
         return "greeting"; // Affiche home.html
     }
 }
