@@ -21,6 +21,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // This tells Spring where to find WebJar static resources
+        // For version agnostic WebJars, see :
+        // - org.springframework.web.servlet.config.annotation.ResourceChainRegistration.isWebJarsAssetLocatorPresent
+        // - org.springframework.web.servlet.resource.WebJarsResourceResolver
+        registry
+                .addResourceHandler("/icon/**")
+                .addResourceLocations("/icon/");
         registry
                 .addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
