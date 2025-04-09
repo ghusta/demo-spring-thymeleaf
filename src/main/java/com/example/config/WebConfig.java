@@ -29,7 +29,8 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("/icon/");
         registry
                 .addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+                .addResourceLocations("classpath:/META-INF/resources/webjars/")
+                .resourceChain(true);
     }
 
     @Bean
