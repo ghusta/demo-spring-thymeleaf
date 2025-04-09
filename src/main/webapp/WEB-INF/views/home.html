@@ -7,8 +7,10 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
     <script>
+        console.log('Found Bootstrap version', bootstrap.Tooltip.VERSION);
         console.log('Found JQuery version', $.fn.jquery);
     </script>
 </head>
