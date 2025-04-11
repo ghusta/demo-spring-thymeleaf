@@ -1,5 +1,7 @@
 package com.example.config;
 
+import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
+import nz.net.ultraq.thymeleaf.layoutdialect.decorators.strategies.GroupingStrategy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -48,6 +50,9 @@ public class WebConfig implements WebMvcConfigurer {
     public SpringTemplateEngine templateEngine(SpringResourceTemplateResolver templateResolver) {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver);
+        // IMPORTANT: Setup Thymeleaf Layout Dialect (https://ultraq.github.io/thymeleaf-layout-dialect/)
+        // See: https://ultraq.github.io/thymeleaf-layout-dialect/getting-started/
+        templateEngine.addDialect(new LayoutDialect(new GroupingStrategy(), true));
         return templateEngine;
     }
 

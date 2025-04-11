@@ -1,34 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
+    <title>Home</title>
     <meta charset="UTF-8">
-    <title>Accueil</title>
-    <!--/* See : https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/ */-->
-    <link rel="icon" th:href="@{/icon/rocket.svg}" href="../../icon/rocket.svg" type="image/svg+xml">
-
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/dist/css/bootstrap.min.css}" />
-
-    <script th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/dist/js/bootstrap.min.js}"></script>
-
-    <script>
-        console.log('Found Bootstrap version', bootstrap.Tooltip.VERSION);
-        console.log('Found JQuery version', $.fn.jquery);
-    </script>
 </head>
 <body>
-<div class="container">
-    <h1 th:text="${message}">Message par défaut</h1>
-
-    <h3>Some Thymeleaf Expression objects</h3>
-    <ul>
-        <li><span th:text="${ #locale }">?</span></li>
-        <li><span th:text="${#dates.format(#dates.createNow())}">?</span></li>
-        <li><span th:text="${#dates.format(#dates.createNow(), 'HH:mm:ss')}">?</span></li>
-        <li><span th:text="${#dates.formatISO(#dates.createNow())}">?</span></li>
-    </ul>
-
-    <footer>Generated at <span th:text="${serverTime}" style="color: #b8185d; font-weight: Bold">⏰</span></footer>
-</div>
+    <section layout:fragment="content">
+        <div class="text-center">
+            <h2>Welcome to My Website</h2>
+            <p class="lead">This is a sample <b>home</b> page using Thymeleaf and Bootstrap.</p>
+            <a class="btn btn-primary" th:href="@{/about}">Learn More</a>
+        </div>
+    </section>
 </body>
 </html>
