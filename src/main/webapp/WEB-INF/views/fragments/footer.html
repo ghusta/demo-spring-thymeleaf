@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="footer">
+    <hr />
+    <footer class="text-center mb-1">&copy; <span th:text="${T(java.time.Year).now()}">1901</span> Footer</footer>
+</div>
+</body>
+</html>
