@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <title>Thymeleaf Tests</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<section layout:fragment="content">
+    <!-- See: https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#appendix-a-expression-basic-objects -->
+    <div class="text-center">
+        <h2>Thymeleaf Tests</h2>
+        <ul>
+            <li th:text="@{/}">context_root</li>
+            <li th:text="${#locale.country}">locale.country</li>
+            <li th:text="${#locale}">locale</li>
+            <li th:text="${param.size()}">nb of request params</li>
+            <li th:text="${session.size()}">nb of session attr.</li>
+            <li th:text="${application.size()}">nb of ServletContext attr.</li>
+            <li th:text="${#messages.msg('hello')}">messages['hello']</li>
+            <li th:text="${#temporals.format( utcNow )}">LocalDateTime.now()</li>
+            <li th:text="${#temporals.year( utcNow )}">year</li>
+            <li th:text="${ T(java.time.LocalDateTime).now() }">now()</li>
+        </ul>
+    </div>
+</section>
+</body>
+</html>

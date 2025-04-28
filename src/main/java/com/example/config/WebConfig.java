@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.thymeleaf.messageresolver.StandardMessageResolver;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring6.view.ThymeleafViewResolver;
@@ -53,6 +54,9 @@ public class WebConfig implements WebMvcConfigurer {
         // IMPORTANT: Setup Thymeleaf Layout Dialect (https://ultraq.github.io/thymeleaf-layout-dialect/)
         // See: https://ultraq.github.io/thymeleaf-layout-dialect/getting-started/
         templateEngine.addDialect(new LayoutDialect(new GroupingStrategy(), true));
+
+        // i18n
+        templateEngine.addMessageResolver(new StandardMessageResolver());
         return templateEngine;
     }
 

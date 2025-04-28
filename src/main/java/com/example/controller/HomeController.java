@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -35,4 +36,13 @@ public class HomeController {
 
         return "greeting"; // Affiche greeting.html
     }
+
+    @GetMapping("/test")
+    public String testPage(Model model) {
+        model.addAttribute("utcNow", Instant.now());
+        model.addAttribute("localNow", LocalDateTime.now());
+
+        return "test";
+    }
+
 }
