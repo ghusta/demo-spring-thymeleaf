@@ -33,6 +33,6 @@ public class HomeController {
         List<String> myList = List.of("Hello World", "Hello World", "Hello World", "Hello World");
         model.addAttribute("myList", myList);
 
-        return "greeting"; // Affiche home.html
+        return "greeting"; // Affiche greeting.html
     }
 }
